@@ -115,6 +115,6 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          push: false
+          push: true
           tags: hassanb111/soalr-app:latest
  
