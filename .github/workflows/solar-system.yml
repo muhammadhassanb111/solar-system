@@ -25,6 +25,16 @@ jobs:
         with:
           node-version: 18
 
+      - name: Cache npm dependencies
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.npm
+            node_modules
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-
+
       - name: Install Dependencies
         run: npm install
 
@@ -52,13 +62,21 @@ jobs:
         with:
           node-version: 18
 
+      - name: Restore npm dependencies from cache
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.npm
+            node_modules
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+
       - name: Install Dependencies
         run: npm install
 
       - name: Unit Testing
         run: npm test
 
-      - name: check code coverage
+      - name: Check code coverage
         run: npm run coverage
         continue-on-error: true  # This makes the workflow continue even if this step fails
 
