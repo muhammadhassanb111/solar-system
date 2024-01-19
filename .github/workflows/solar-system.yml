@@ -108,5 +108,5 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ vars.DOCKERHUB_USERNAME }}/solar-system:${{ github.sha }}
+          tags: hassanb111/soalr-app:latest
  
