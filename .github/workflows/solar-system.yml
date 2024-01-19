@@ -116,5 +116,5 @@ jobs:
         with:
           context: .
           push: true
-          tags: hassanb111/soalr-app:latest
+          tags: hassanb111/soalr-app:${{ github.sha }}
  
