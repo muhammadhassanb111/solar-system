@@ -99,7 +99,7 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-
+        
       - name: show files
         run:  |
             ls -la
@@ -116,5 +116,5 @@ jobs:
         with:
           context: .
           push: false
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/solar-system:${{ github.sha }}
+          tags: hassanb111/soalr-app:latest
  
