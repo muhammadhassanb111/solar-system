@@ -76,7 +76,7 @@ jobs:
       - name: Unit Testing
         run: npm test
 
-      - name: Check code coverage
+      - name: Check code coverage1
         run: npm run coverage
         continue-on-error: true  # This makes the workflow continue even if this step fails
 
