@@ -113,4 +113,14 @@ jobs:
           context: .
           push: true
           tags: ${{ vars.DOCKER_USERNAME }}/solar-system:${{ github.sha }}
- 
+  dev-deploy:
+    needs: docker-login
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      - uses: azure/setup-kubectl@v3
+        with:
+           version: '1.24' # default is latest stable
+        id: install
