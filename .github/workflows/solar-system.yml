@@ -123,3 +123,12 @@ jobs:
       - uses: azure/setup-kubectl@v3
         with:
            version: 'v1.26.0' # default is latest stable
+      - uses: azure/k8s-set-context@v3
+        with:
+            method: kubeconfig
+            kubeconfig: ${{ secrets.KUBECONFIG }}
+      - name: fetch k8s cluster details
+        run: |
+            kubectl version --short
+            echo --------------------------------
+            kubectl get nodes
